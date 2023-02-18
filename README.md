@@ -26,3 +26,5 @@ python main.py
 5. the output will be saved as `finals.ics` in the same directory as the script.
 
 6. import the file to your calendar app.
+
+
