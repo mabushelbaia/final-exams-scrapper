@@ -34,6 +34,5 @@ for index, row in df.iterrows():
     e.add('dtend', datetime.strptime(row["Date"].split()[1] + " " + end_time, "%d/%m/%Y %I:%M %p"))
     e.add('location', row["Rooms"])
     c.add_component(e)
-
 with open("finals.ics", "wb") as f:
     f.write(c.to_ical())  
