@@ -16,7 +16,7 @@ git clone https://github.com/mabushelbaia/final-exams-scraper
 pip install -r requirements.txt
 ```
 
-3. since the websites uses cloudflare, you need to get the html page and save it as `index.html` in the same directory as the script.
+3. since the websites uses cloudflare, you need to get the html page manually and save it as `index.html` in the same directory as the script.
 4. run the script
 
 ```bash
