@@ -27,18 +27,12 @@ c = Calendar()
 for index, row in df.iterrows():
     e = Event()
     e.name = "FINAL: " + row["Course"] + " " + row["Course Title"]
-    # parse the date and time from the table knowing its in 24 hour formatp
-
-    e.begin = datetime.strptime(
-        row["Date"].split()[1] + " " + row["Time"].split("-")[0].strip(),
-        "%d/%m/%Y %H:%M",
-    )
-    e.end = datetime.strptime(
-        row["Date"].split()[1] + " " + row["Time"].split("-")[1].strip(),
-        "%d/%m/%Y %H:%M",
-    )
+    # parse the date and time from the table knowing its in 24 hour format
+    begin_time = datetime.strptime(row["Time"].split("-")[0].strip(), "%H:%M").strftime("%I:%M %p")
+    end_time = datetime.strptime(row["Time"].split("-")[1].strip(), "%H:%M").strftime("%I:%M %p")
+    e.begin = datetime.strptime(row["Date"].split()[1] + " " + begin_time, "%d/%m/%Y %I:%M %p")
+    e.end = datetime.strptime(row["Date"].split()[1] + " " + end_time, "%d/%m/%Y %I:%M %p")
     e.location = row["Rooms"]
     c.events.add(e)
-print(c)
 with open("finals.ics", "w") as my_file:
     my_file.writelines(c)
