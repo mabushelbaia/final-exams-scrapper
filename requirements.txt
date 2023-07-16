@@ -1,3 +1,4 @@
 beautifulsoup4==4.11.2
 icalendar==5.0.4
+lxml==4.9.3
 pandas==1.5.3

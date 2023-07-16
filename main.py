@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 from icalendar import Calendar, Event
 from datetime import datetime
+import lxml
 
 html_doc = open("index.html", encoding="utf-8").read()
 soup = BeautifulSoup(html_doc, "lxml")
